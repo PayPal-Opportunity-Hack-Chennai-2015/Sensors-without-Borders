@@ -15,4 +15,8 @@ var Activity = mongoose.model('Activity', {
 	details: Object
 });
 
+module.exports.save = function (obj, callback) {
+    obj.save(callback);
+};
+
 module.exports.Activity = Activity;

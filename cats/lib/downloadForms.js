@@ -2,6 +2,7 @@
 
 var request = require('request'),
     _ = require('lodash'),
+    async = require('async'),
     db = require('../models/db'),
     options = {
         url: 'https://www.commcarehq.org/a/swb-opphack/api/v0.4/form/',
@@ -12,14 +13,15 @@ var request = require('request'),
         json: true
     };
 
-function newActivity(data, callback) {
+function buildActivity(data, callback) {
     return new db.Activity({
         instanceID: data.meta.instanceID,
         username: data.meta.username,
-        sensorDeviceId: data.SensorDevice_Id,
-        completedOn: data.current_date,
-        location: data.GPS_Location,
+        sensorDeviceId: (data.SensorDevice_Id || data.SD_Identification),
+        completedOn: (data.current_date || data.Current_Date),
+        location: (data.GPS_Location || data.SD_Location),
         description: data['@name'],
+        karma: Number(data.Karma_Points || 50) || 50,
         status: 'Pending',
         details: data
     });
@@ -31,5 +33,12 @@ function getCommCareForms(callback) {
     });
 }
 
-module.exports.newActivity = newActivity;
+function saveForms(callback) {
+    getCommCareForms(function (err, list) {
+        async.each(_.map(list, buildActivity), db.save, callback);
+    });
+}
+
+module.exports.saveForms = saveForms;
+module.exports.buildActivity = buildActivity;
 module.exports.getCommCareForms = getCommCareForms;
