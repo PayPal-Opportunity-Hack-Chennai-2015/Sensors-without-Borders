@@ -19,6 +19,9 @@
     "kraken-js": "^1.0.3",
     "makara": "^2.0.3",
     "mongoose": "^4.2.8",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "request": "^2.67.0",
     "requirejs": "^2.1.22"
   },
   "devDependencies": {
