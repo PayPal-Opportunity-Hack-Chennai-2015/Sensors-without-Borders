@@ -18,4 +18,4 @@ Buliding a community engagement model for volunteers involved in various deploym
 ## The primary componenets of the system:
 
 * Tracking system (getting to know who has done what)
-* Reward system (when vlounteers successfully complete they are rewarded for their efforts)
+* Reward system (when volunteers successfully complete they are rewarded for their efforts)
