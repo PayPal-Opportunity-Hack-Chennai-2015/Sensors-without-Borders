@@ -1,0 +1,24 @@
+{
+  "name": "cats",
+  "description": "Current Activity Tracking System",
+  "main": "index.js",
+  "authors": [
+    "siddick@gmail.com"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/siddick/Sensors-without-Borders",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.1.16",
+    "bootstrap": "~3.3.6"
+  }
+}
