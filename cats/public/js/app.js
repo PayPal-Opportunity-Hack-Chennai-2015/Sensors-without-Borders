@@ -2,11 +2,17 @@
 
 
 requirejs.config({
-    paths: {}
+    paths: {
+        jquery: '../components/jquery/dist/jquery',
+        bootstrap: '../components/bootstrap/dist/js/bootstrap'
+    },
+    shim: {
+        bootstrap: ['jquery']
+    }
 });
 
 
-require([/* Dependencies */], function () {
+require(['bootstrap'], function () {
 
     var app = {
         initialize: function () {
