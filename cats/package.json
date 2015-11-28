@@ -17,6 +17,7 @@
     "dust-makara-helpers": "^4.1.2",
     "express": "^4.12.2",
     "kraken-js": "^1.0.3",
+    "lodash": "^3.10.1",
     "makara": "^2.0.3",
     "mongoose": "^4.2.8",
     "request": "^2.67.0",
