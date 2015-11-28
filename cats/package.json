@@ -19,6 +19,7 @@
     "kraken-js": "^1.0.3",
     "makara": "^2.0.3",
     "mongoose": "^4.2.8",
+    "request": "^2.67.0",
     "requirejs": "^2.1.22"
   },
   "devDependencies": {
