@@ -1,7 +1,7 @@
 'use strict';
 
 var IndexModel = require('../models/index');
-var passport = require('passport');
+var passport = require('../lib/auth');
 
 // https://www.commcarehq.org/a/swb-opphack/api/v0.4/web-user/
 

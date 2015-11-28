@@ -1,3 +1,5 @@
+'use strict';
+
 var passport = require('passport'),
     request = require('request'),
     qs = require('querystring'),

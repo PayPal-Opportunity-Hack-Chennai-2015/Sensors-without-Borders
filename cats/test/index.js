@@ -34,11 +34,7 @@ describe('index', function () {
     it('should say "hello"', function (done) {
         request(mock)
             .get('/')
-            .expect(200)
-            .expect('Content-Type', /html/)
-            
-                .expect(/Hello, /)
-            
+            .expect(401)
             .end(function (err, res) {
                 done(err);
             });
