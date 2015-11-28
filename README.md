@@ -4,9 +4,9 @@ Create communication channels for community volunteers to report environmental p
 
 # Contributors
 
-* Kaushik Seetharaman
+* [Kaushik Seetharaman](https://github.com/)
 * [Muhammad Sadiq](https://github.com/mdsadiq)
 * [Kushagra Sharma](https://github.com/kushagra8888)
-* [Prakash Venkatasan](https://github.com/k
+* [Prakash Venkatasan](https://github.com/)
 * [Siddick Ebramsha](https://github.com/siddick)
 * [Jegathesan Ganesan](https://github.com/jegganesan)
