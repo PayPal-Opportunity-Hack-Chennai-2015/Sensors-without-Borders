@@ -7,19 +7,25 @@
             <h4 class="text-center">John, Mickle</h4>
             <hr>
             <div class="row">
-                <div class="col-sm-6 text-center"><b>400</b><p>Karma</p></div>
+                <div class="col-sm-6 text-center"><b>{karma}</b><p>Karma</p></div>
                 <div class="col-sm-6 text-center"><b>2</b><p>Tasks</p></div>
             </div>
         </div>
         <div class="col-sm-10">
-            <h3>Pending Tasks</h3>
+            <h3>Waiting for approvals</h3>
             <table class="table">
                 <thead>
-                    <tr><th>Task</th><th>Point</th><th>Status</th></tr>
+                    <tr><th>Sensor</th><th>Task</th><th>Point</th><th>Completed On</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Install devise</td><td>200</td><th><a href="#">Pending</a></tr>
-                    <tr><td>Device Maintenance</td><td>50</td><th><a href="#">Pending</a></tr>
+                    {#activities}
+                    <tr>
+                        <td>{sensorDeviceId}</td>
+                        <td>{description}</td>
+                        <td>{?karma}{karma}{:else}50{/karma}</td>
+                        <td>{completedOn}</td>
+                    </tr>
+                    {/activities}
                 </tbody>
             </table>
 
@@ -29,8 +35,8 @@
                     <tr><th>Task</th><th>Point</th><th>Status</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Install devise</td><td>200</td><th><a href="#">Done</a></tr>
-                    <tr><td>Install devise</td><td>200</td><th><a href="#">Done</a></tr>
+                    <tr><td>Install devise</td><td>200</td><td>Done</td></tr>
+                    <tr><td>Install devise</td><td>200</td><td>Done</td></tr>
                 </tbody>
             </table>
         </div>
