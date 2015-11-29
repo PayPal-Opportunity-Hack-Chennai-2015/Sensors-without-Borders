@@ -46,6 +46,16 @@ module.exports = function (router) {
         });
     });
 
+    router.get('/activities/:id', function (req, res, next) {
+        db.Activity.findById(req.params.id, function (err, doc) {
+            if (err) {
+                res.status(500).send(err);
+            } else {
+                res.send(doc);
+            }
+        });
+    });
+
     router.get('/activities/:id/reject', passport.authenticate('basic'), function (req, res, next) {
         db.Activity.findById(req.params.id, function (err, doc) {
             if (err) {
