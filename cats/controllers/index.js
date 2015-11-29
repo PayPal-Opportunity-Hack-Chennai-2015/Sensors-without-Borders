@@ -23,7 +23,7 @@ module.exports = function (router) {
                 db.Activity.find({ 'details.meta.userID': req.user.id, status: 'Pending' }, fields, next);
             },
             history: function (next) {
-                db.Activity.find({ 'details.meta.userID': req.user.id, status: 'Completed' }, fields, next);
+                db.Activity.find({ 'details.meta.userID': req.user.id, status: { $ne: 'Pending' } }, fields, next);
             },
             karma: function (next) {
                 db.Activity.aggregate([{

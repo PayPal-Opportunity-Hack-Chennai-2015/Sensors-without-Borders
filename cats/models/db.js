@@ -10,7 +10,7 @@ var Activity = mongoose.model('Activity', {
 	description: String,
 	completedOn: String,
 	location: String,
-	status: { type: String, enum: ['Pending', 'Completed'] },
+	status: { type: String, enum: ['Pending', 'Completed', 'Rejected'] },
 	karma: Number,
 	details: Object
 });

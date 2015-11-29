@@ -20,6 +20,7 @@
                         <td>{?karma}{karma}{:else}50{/karma}</td>
                         <td>{completedOn}</td>
                         <td><a href="/admin/activities/{_id}/approve">Approve</a></td>
+                        <td><a href="/admin/activities/{_id}/reject">Reject</a></td>
                     </tr>
                     {/activities}
                 </tbody>

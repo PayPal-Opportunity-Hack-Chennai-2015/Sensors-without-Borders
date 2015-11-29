@@ -41,7 +41,22 @@ module.exports = function (router) {
                 if (err) {
                     return next(err);
                 }
-                res.redirect('/admin?message=Successfully Approved');
+                res.redirect('/admin?message=Task Approved');
+            });
+        });
+    });
+
+    router.get('/activities/:id/reject', passport.authenticate('basic'), function (req, res, next) {
+        db.Activity.findById(req.params.id, function (err, doc) {
+            if (err) {
+                return next(err);
+            }
+            doc.status = 'Rejected';
+            doc.save(function (err) {
+                if (err) {
+                    return next(err);
+                }
+                res.redirect('/admin?message=Task Rejected');
             });
         });
     });
