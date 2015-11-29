@@ -11,7 +11,10 @@ npm install && bower install
 
 ## Starting dev server
 
+
 ```sh
+export COMMCARE_USERNAME=xxxxxx@gmail.com
+export COMMCARE_PASSWORD=xxxxxx
 npm start
 ```
 
