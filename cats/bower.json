@@ -19,6 +19,9 @@
   ],
   "dependencies": {
     "requirejs": "^2.1.16",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "datatables": "~1.10.10",
+    "datatables-tabletools": "~2.2.4",
+    "Plugins": "https://github.com/DataTables/Plugins.git#~1.10.10"
   }
 }
