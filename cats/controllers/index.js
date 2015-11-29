@@ -2,6 +2,7 @@
 
 var passport = require('../lib/auth'),
     async = require('async'),
+    gravatar = require('gravatar'),
     _ = require('lodash'),
     db = require('../models/db'),
     fields = "sensorDeviceId description completedOn status karma";
@@ -13,6 +14,11 @@ module.exports = function (router) {
 
     router.get('/', passport.authenticate('basic'), function (req, res) {
         async.parallel({
+            user: function (next) {
+                var user = _.extend({}, req.user);
+                user.imageUrl = gravatar.url(user.email || user.username, { s: '120' });
+                next(null, user);
+            },
             activities: function (next) {
                 db.Activity.find({ status: 'Pending' }, fields, next);
             },

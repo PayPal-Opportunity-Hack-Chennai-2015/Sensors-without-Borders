@@ -3,15 +3,18 @@
 {<body}
     <div class="row">
         <div class="col-sm-2">
-            <img src="http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?size=120" class="img-responsive center-block">
-            <h4 class="text-center">John, Mickle</h4>
+            {#user}
+            <img src="{imageUrl}" class="img-responsive center-block">
+            <h4 class="text-center">{first_name}, {last_name}</h4>
             <hr>
             <div class="row">
                 <div class="col-sm-6 text-center"><b>{karma}</b><p>Karma</p></div>
-                <div class="col-sm-6 text-center"><b>2</b><p>Tasks</p></div>
+                <div class="col-sm-6 text-center"><b>0</b><p>Tasks</p></div>
             </div>
+            {/user}
         </div>
         <div class="col-sm-10">
+            {?activities}
             <h3>Waiting for approvals</h3>
             <table class="table">
                 <thead>
@@ -28,6 +31,7 @@
                     {/activities}
                 </tbody>
             </table>
+            {/activities}
 
             <h3>History</h3>
             <table class="table">
