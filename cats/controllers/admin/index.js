@@ -3,6 +3,7 @@
 var passport = require('../../lib/auth'),
     async = require('async'),
     _ = require('lodash'),
+    download = require('../../lib/downloadForms'),
     db = require('../../models/db'),
     fields = "username sensorDeviceId description completedOn status karma";
 
@@ -18,6 +19,12 @@ module.exports = function (router) {
             }
         }, function (e, data) {
             res.render('admin', data);
+        });
+    });
+
+    router.get('/download', passport.authenticate('basic'), function (req, res) {
+        download.saveForms(function () {
+            res.redirect('/admin');
         });
     });
 
