@@ -20,14 +20,14 @@ module.exports = function (router) {
                 next(null, user);
             },
             activities: function (next) {
-                db.Activity.find({ status: 'Pending' }, fields, next);
+                db.Activity.find({ 'details.meta.userID': req.user.id, status: 'Pending' }, fields, next);
             },
             history: function (next) {
-                db.Activity.find({ status: 'Completed' }, fields, next);
+                db.Activity.find({ 'details.meta.userID': req.user.id, status: 'Completed' }, fields, next);
             },
             karma: function (next) {
                 db.Activity.aggregate([{
-                    $match: { status: 'Completed' }
+                    $match: { status: 'Completed', 'details.meta.userID': req.user.id }
                 }, {
                     $group: {
                         _id: {},
