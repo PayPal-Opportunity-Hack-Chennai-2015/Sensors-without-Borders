@@ -2,6 +2,7 @@
 
 var passport = require('../lib/auth'),
     async = require('async'),
+    gravatar = require('gravatar'),
     _ = require('lodash'),
     db = require('../models/db'),
     fields = "sensorDeviceId description completedOn status karma";
@@ -13,15 +14,20 @@ module.exports = function (router) {
 
     router.get('/', passport.authenticate('basic'), function (req, res) {
         async.parallel({
+            user: function (next) {
+                var user = _.extend({}, req.user);
+                user.imageUrl = gravatar.url(user.email || user.username, { s: '120' });
+                next(null, user);
+            },
             activities: function (next) {
-                db.Activity.find({ status: 'Pending' }, fields, next);
+                db.Activity.find({ 'details.meta.userID': req.user.id, status: 'Pending' }, fields, next);
             },
             history: function (next) {
-                db.Activity.find({ status: 'Completed' }, fields, next);
+                db.Activity.find({ 'details.meta.userID': req.user.id, status: { $ne: 'Pending' } }, fields, next);
             },
             karma: function (next) {
                 db.Activity.aggregate([{
-                    $match: { status: 'Completed' }
+                    $match: { status: 'Completed', 'details.meta.userID': req.user.id }
                 }, {
                     $group: {
                         _id: {},

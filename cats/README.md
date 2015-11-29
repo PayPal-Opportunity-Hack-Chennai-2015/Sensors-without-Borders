@@ -14,6 +14,7 @@ npm install && bower install
 ```sh
 export COMMCARE_USERNAME=xxxxxx@gmail.com
 export COMMCARE_PASSWORD=xxxxxx
+export MONGODB_URI='mongodb://localhost/cats'
 npm start
 ```
 
