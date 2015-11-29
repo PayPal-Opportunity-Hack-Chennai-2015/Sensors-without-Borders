@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/cats');
 
 var Activity = mongoose.model('Activity', {
-    instanceID: { type: String, index: { unique: true } },
+    instanceID: { type: String, index: { unique: true }, required: true },
 	username: String,
 	sensorDeviceId: String,
 	description: String,

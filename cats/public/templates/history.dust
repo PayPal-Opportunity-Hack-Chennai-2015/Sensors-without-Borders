@@ -1,0 +1,25 @@
+{>"layouts/admin" /}
+
+{<body}
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>History</h3>
+            <table class="table">
+                <thead>
+                    <tr><th>User</th><th>Sensor</th><th>Task</th><th>Point</th><th>Completed On</th></tr>
+                </thead>
+                <tbody>
+                    {#activities}
+                    <tr>
+                        <td>{username}</td>
+                        <td>{sensorDeviceId}</td>
+                        <td>{description}</td>
+                        <td>{?karma}{karma}{:else}50{/karma}</td>
+                        <td>{completedOn}</td>
+                    </tr>
+                    {/activities}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{/body}

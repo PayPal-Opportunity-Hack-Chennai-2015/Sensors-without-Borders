@@ -22,7 +22,7 @@
                     <tr>
                         <td>{sensorDeviceId}</td>
                         <td>{description}</td>
-                        <td>{?karma}{karma}{:else}50{/karma}</td>
+                        <td>{karma}</td>
                         <td>{completedOn}</td>
                     </tr>
                     {/activities}
@@ -35,8 +35,13 @@
                     <tr><th>Task</th><th>Point</th><th>Status</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Install devise</td><td>200</td><td>Done</td></tr>
-                    <tr><td>Install devise</td><td>200</td><td>Done</td></tr>
+                    {#history}
+                    <tr>
+                        <td>{description}</td>
+                        <td>{karma}</td>
+                        <td>{completedOn}</td>
+                    </tr>
+                    {/history}
                 </tbody>
             </table>
         </div>

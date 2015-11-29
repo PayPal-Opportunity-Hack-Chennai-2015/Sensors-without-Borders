@@ -21,7 +21,7 @@ module.exports = function (router) {
             },
             karma: function (next) {
                 db.Activity.aggregate([{
-                    $match: { status: 'Pending' }
+                    $match: { status: 'Completed' }
                 }, {
                     $group: {
                         _id: {},
